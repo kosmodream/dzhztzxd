@@ -1,4 +1,7 @@
+
+//без комментов как эронично
 document.querySelector
+//вопрос зачем тебе с твоими функциями это
 let one = document.querySelector('.one');
 let two = document.querySelector('.two');
 let three = document.querySelector('.three');
@@ -16,6 +19,7 @@ let ymn = document.querySelector('.ymn');
 let input = document.querySelector('.vvod');
 let ravno = document.querySelector('.ravno');
 
+//да и это упрощаешь тебе жизнь а ты усложняешь
 function ch(e){
     input.value = input.value + e.textContent
 }
@@ -27,7 +31,7 @@ ravno.addEventListener('click', () => {
         input.value = 'Ошибка';
     }
 })
-
+//почему это здесь?
 let popup = document.querySelector('.popup');
 let btns = document.querySelectorAll('.btn');
 
@@ -36,23 +40,25 @@ let numberToAdd = "";
 function otkr(e) {
     const buttonText = e.target.textContent;
     numberToAdd = buttonText;
+    //Зачем? у тебя в попап есть текст во первых а во вторых где какую цифру????
     const popupText = `Вы уверены, что хотите нажать цифру?`;
     const popupContent = popup.querySelector('a');
     popupContent.textContent = popupText;
-
+   
     if (!popup.classList.contains('active')) {
         popup.classList.add('active');
     }
-
+    
     yesBtn.addEventListener('click', addNumberAndClose);
     noBtn.addEventListener('click', zakr);
 }
-
+//бесполезная функция
 function zakr() {
+
     popup.classList.remove('active');
     numberToAdd = ""; 
 }
-
+//слишком нагружено проще передавать само название кнопки numberToAdd убери и подумай как
 function addNumberAndClose() {
     if (numberToAdd !== "") {
         input.value += numberToAdd;
@@ -61,14 +67,14 @@ function addNumberAndClose() {
     }
     yesBtn.removeEventListener('click', addNumberAndClose);
 }
-
+//передавай название кнопки
 btns.forEach(btn => {
     btn.addEventListener('click', otkr);
 });
-
+//ты гений? ты эти кнопки даже не здесь используешь
 let yesBtn = document.querySelector('.da');
 let noBtn = document.querySelector('.net');
-
+//ну кроме этой все равно вопрос какого хера она здесь? да ты уменшил код молодец но ты переменные не вверху пишешь
 let clearBtn = document.querySelector('.clear');
 
 clearBtn.addEventListener('click', () => {
